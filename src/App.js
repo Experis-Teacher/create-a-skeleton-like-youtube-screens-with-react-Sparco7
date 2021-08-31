@@ -10,6 +10,7 @@ class App extends Component {
     super(props)
     this.state = {
       videos: [],
+      videosSkeleton: [1,1,1,1,1,1,11,1,11],
       loading: false,
       timer: null
     }
@@ -40,9 +41,10 @@ class App extends Component {
 
 
   render(){
+    console.log("length of videos: ", this.state.videos.length );
     return (
       <div className="App">
-         {/* {
+         {
           this.state.videos.map((list, index) => {
             return (
               <section key={index}>
@@ -51,8 +53,8 @@ class App extends Component {
                 <hr />
               </section>
             );
-          })} */}
-          <SkeletonCard/>
+          })}
+          <SkeletonCard videos={this.state.videosSkeleton}/>
       </div>
     );
   }
